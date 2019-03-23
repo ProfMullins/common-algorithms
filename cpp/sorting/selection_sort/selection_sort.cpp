@@ -73,7 +73,7 @@ int main() {
     PrintArray(intArr, intLen);
 
     printf("\n");
-    
+
     char charArr[] = {'a', 'n', 'e', 't', 'u', 'h', 'e', 's', 'x', 'h', 'i', 'o', 'j', 'g', 'f', 'd', 'e', 'g', 'z',
                       'a', 'e', 'w', 'f', 'h', 'k', 'h', 'f', 'l', 'a', 'q', 'w', 'r', 'y', 'h', 'f'};
     int charLen = sizeof(charArr) / sizeof(charArr[0]);
