@@ -1,10 +1,13 @@
 def selection_sort(array)
   len = array.length - 1
+  # Loop through unsorted arrays
   len.times do |i|
     min_index = i
+    # Find min in unsorted array
     for j in (i + 1)..len
       min_index = j if array[j] < array[min_index]
     end
+    # Swap min element with first element
     array[i], array[min_index] = array[min_index], array[i] if min_index != i
   end
   array

@@ -12,7 +12,7 @@ func sortIntArr(arr []int) {
 	for i := 0; i < size; i++ {
 		var min = i
 
-		// Find min in remaining unsorted array
+		// Find min in unsorted array
 		for j := i; j < size; j++ {
 			if arr[j] < arr[min] {
 				min = j
@@ -31,7 +31,7 @@ func sortStrArr(arr []string) {
 	for i := 0; i < size; i++ {
 		var min = i
 
-		// Find min in remaining unsorted array
+		// Find min in unsorted array
 		for j := i; j < size; j++ {
 			if arr[j] < arr[min] {
 				min = j

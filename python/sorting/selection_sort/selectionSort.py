@@ -3,7 +3,7 @@
 def sort_array(arr):
     # Loop through unsorted array
     for i in range(len(arr)):
-        # Find minimun in remaining unsorted array
+        # Find min in unsorted array
         min_index = i;
         for j in range(i + 1, len(arr)):
             if arr[min_index] > arr[j]:
