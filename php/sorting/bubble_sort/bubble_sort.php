@@ -1,28 +1,28 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: mullins
+ * Date: 3/24/19
+ * Time: 7:07 PM
+ */
 
 function sort_arr($arr)
 {
-    # Loop through unsorted array
-    for ($i = 0; $i < count($arr) - 1; $i++) {
-        # Find min in unsorted array
-        $min = $i;
-        for ($j = $i + 1; $j < count($arr); $j++) {
-            if ($arr[$j] < $arr[$min]) {
-                $min = $j;
+    $len = sizeof($arr);
+
+    for($i = 0; $i < $len; $i++)
+    {
+        for ($j = 0; $j < $len - $i - 1; $j++)
+        {
+            if ($arr[$j] > $arr[$j+1])
+            {
+                $temp = $arr[$j];
+                $arr[$j] = $arr[$j+1];
+                $arr[$j+1] = $temp;
             }
         }
-
-        # Swap min element with first element
-        $arr = swap($arr, $i, $min);
     }
-    return $arr;
-}
 
-function swap($arr, $left, $right)
-{
-    $temp = $arr[$right];
-    $arr[$right] = $arr[$left];
-    $arr[$left] = $temp;
     return $arr;
 }
 
