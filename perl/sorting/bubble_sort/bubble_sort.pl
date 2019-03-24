@@ -8,23 +8,23 @@ my @char_arr = ('a', 'n', 'e', 't', 'u', 'h', 'e', 's', 'x', 'h', 'i', 'o', 'j',
 
 sub sort_arr {
     my @arr = @_;
+
     my $len = scalar(@arr);
-    my $min;
+    
+    my $sorted = 0;
 
-    # Loop through unsorted array
-    for (my $i = 0; $i < $len; $i++) {
-    for (my $i = 0; $i < $len; $i++) {
-	# Find min in unsorted array
-	for (my $j = $i + 1; $j < $len; $j++) {
-	    if ($arr[$j] < $arr[$i]) {
-        	# Swap min element with first element
-		$min = $arr[$j];
-		$arr[$j] = $arr[$i];
-		$arr[$i] = $min;
-	    }
-	}
+    while ( not $sorted ) {
+        $sorted = 1; # Innocent until proven guilty.
 
-	break;
+        for my $curr ( 1 .. $len) {
+            my $prev = $curr - 1;
+
+            if ( $arr[$curr] < $arr[$prev] ) {
+                ($arr[$curr], $arr[$prev]) = ($arr[$prev], $arr[$curr]);
+
+                $sorted = 0;
+            }
+        }
     }
 
     print_arr(@arr);
@@ -32,23 +32,24 @@ sub sort_arr {
 
 sub sort_char {
     my @arr = @_;
+    
     my $len = scalar(@arr);
-    my $min;
 
-    # Loop through unsorted array
-    for (my $i = 0; $i < $len; $i++) {
-	# Find min in unsorted array
-	for (my $j = $i + 1; $j < $len; $j++) {
-	    my $comp = $arr[$j] cmp $arr[$i];
-	    if ($comp == -1) {
-        	# Swap min element with first element
-		$min = $arr[$j];
-		$arr[$j] = $arr[$i];
-		$arr[$i] = $min;
-	    }
-	}
+    my $sorted = 0;
 
-	break;
+    while ( not $sorted ) {
+        $sorted = 1; # Innocent until proven guilty.
+
+        for my $curr ( 1 .. $len) {
+            my $prev = $curr - 1;
+
+            my $comp = $arr[$curr] cmp $arr[$prev];
+   	    if ($comp == -1) {
+                ($arr[$curr], $arr[$prev]) = ($arr[$prev], $arr[$curr]);
+
+                $sorted = 0;
+            }
+        }
     }
 
     print_arr(@arr);
